@@ -14,17 +14,36 @@ export class UserFormComponent {
     username: "",
     phone: "",
     website: ""
-  }
+  };
 
   @Output() event = new EventEmitter<string>();
+  @Output() userAdded = new EventEmitter<IUser>();
 
   get message(): string {
     return `Información actualizada para el usuario con id: ${this.user.id}`;
   }
 
-  mostrar(): void {
-    console.log(this.user);
-    console.log(this.message);
+  private isValidUser(user: IUser): boolean {
+    return user.name && user.username && user.phone && user.website ? true : false;
+  };
+
+  private resetForm(): void {
+    this.user = {
+      id: 0,
+      name: "",
+      username: "",
+      phone: "",
+      website: ""
+    };
+  }
+  
+  agregarUsuario(): void {
+    if (this.isValidUser(this.user)) {
+      this.userAdded.emit(this.user);
+      this.resetForm();
+    } else {
+      alert("Por favor, complete todos los campos.");
+    }
   }
 
   enviar(): void {

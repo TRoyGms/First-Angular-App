@@ -1,4 +1,3 @@
-<!-- users-dashboard.component.html -->
 <div id="dashboard-container">
     <h1>{{ tittle }}</h1>
     <h3>{{ message }}</h3>
@@ -13,7 +12,7 @@
           <th>WEBSITE</th>
           <th>Action</th>
         </tr>
-        <tr *ngFor="let user of users_list">
+        <tr *ngFor="let user of getAllUsers()">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.username }}</td>
@@ -26,6 +25,6 @@
   
     <h2>Formulario de Usuarios</h2>
   
-    <app-user-form [user]="selected_user" (event)="eventoRecibido($event)"></app-user-form>
+    <app-user-form [user]="selected_user" (userAdded)="agregarUsuario($event)" (event)="eventoRecibido($event)"></app-user-form>
   </div>
   
