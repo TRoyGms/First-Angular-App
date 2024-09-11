@@ -1,27 +1,31 @@
-<h1>{{message}}</h1>
-
-<div id="table_users">
-    <table border="1px black">
-        <tr id="table_headers">            
-            <th>ID</th>
-            <th>NAME</th>
-            <th>USERNAME</th>
-            <th>PHONE</th>
-            <th>WEBSITE</th>
+<!-- users-dashboard.component.html -->
+<div id="dashboard-container">
+    <h1>{{ tittle }}</h1>
+    <h3>{{ message }}</h3>
+  
+    <div id="table_users">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>USERNAME</th>
+          <th>PHONE</th>
+          <th>WEBSITE</th>
+          <th>Action</th>
         </tr>
         <tr *ngFor="let user of users_list">
-            <td>{{user.id}}</td>
-            <td>{{user.name}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.phone}}</td>
-            <td>{{user.website}}</td>
-            <td><button (click)="seleccionar_usuario(user)">Seleccionar</button></td>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.website }}</td>
+          <td><button (click)="seleccionar_usuario(user)">Seleccionar</button></td>
         </tr>
-    </table>
-</div>
-
-<br>
-
-<h2>FORMULARIO DE USUARIOS</h2>
-
-<app-user-form [user]="selected_user" (event)="eventoRecibido($event)"></app-user-form>
+      </table>
+    </div>
+  
+    <h2>Formulario de Usuarios</h2>
+  
+    <app-user-form [user]="selected_user" (event)="eventoRecibido($event)"></app-user-form>
+  </div>
+  

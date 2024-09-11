@@ -19,7 +19,7 @@ export class UserFormComponent {
   @Output() event = new EventEmitter<string>();
 
   get message(): string {
-    return `Hola, Bienvenido ${this.user.username}`;
+    return `Información actualizada para el usuario con id: ${this.user.id}`;
   }
 
   mostrar(): void {

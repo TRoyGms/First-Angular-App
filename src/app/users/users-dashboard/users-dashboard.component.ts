@@ -12,14 +12,15 @@ export class UsersDashboardComponent {
   users_list: IUser[] = []
 
   selected_user:IUser = {
-    id: 1,
+    id: 0,
     name: "nombre",
     username: "user_1",
     phone: "123456789",
     website: "www.pagina.net"
   }
 
-  message: string = "Bienvenido";
+  tittle: string = "Tabla de Usuarios";
+  message: string = ":D";
 
   constructor(private _service: UserService){
 
